@@ -1,0 +1,91 @@
+import Link from "next/link";
+import type { Listing } from "@/types";
+
+const CONDITION_LABELS: Record<string, string> = {
+  match_worn: "Match Worn",
+  game_used: "Game Used",
+  team_issued: "Team Issued",
+  signed: "Signed",
+  new_signed: "New + Signed",
+  new_with_tags: "New w/ Tags",
+};
+
+const CONDITION_COLORS: Record<string, string> = {
+  match_worn: "bg-[#1a1a2e] text-white",
+  game_used: "bg-cobalt text-white",
+  team_issued: "bg-ink text-white",
+  signed: "bg-signal text-white",
+  new_signed: "bg-[#2d5a27] text-white",
+  new_with_tags: "bg-[#5a4a2d] text-white",
+};
+
+interface Props {
+  listing: Listing;
+}
+
+export default function ListingCard({ listing }: Props) {
+  const mainImage = listing.images?.[0];
+  const price = (listing.price / 100).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+  });
+
+  return (
+    <Link href={`/listing/${listing.id}`} className="group block bg-white border border-ink/10 hover:border-cobalt transition-colors">
+      {/* Image */}
+      <div className="aspect-square bg-[#f0f0f0] relative overflow-hidden">
+        {mainImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={mainImage}
+            alt={listing.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center text-ink/20">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <path d="M21 15l-5-5L5 21"/>
+            </svg>
+          </div>
+        )}
+
+        {/* Condition tag */}
+        <div className="absolute top-3 left-3">
+          <span className={`text-xs font-semibold px-2 py-1 ${CONDITION_COLORS[listing.condition] || "bg-ink text-white"}`}>
+            {CONDITION_LABELS[listing.condition] || listing.condition}
+          </span>
+        </div>
+
+        {/* Limited drop badge */}
+        {listing.limited_drop && (
+          <div className="absolute top-3 right-3">
+            <span className="text-xs font-semibold px-2 py-1 bg-signal text-white">DROP</span>
+          </div>
+        )}
+      </div>
+
+      {/* Info */}
+      <div className="p-4">
+        {listing.athlete && (
+          <p className="text-ink/40 text-xs mb-1 font-medium uppercase tracking-wider">
+            {listing.athlete.full_name}
+            {listing.athlete.sport && ` · ${listing.athlete.sport}`}
+          </p>
+        )}
+        <h3 className="font-semibold text-ink text-sm mb-2 leading-tight line-clamp-2">{listing.title}</h3>
+        <div className="flex items-center justify-between">
+          <span className="font-display text-cobalt text-xl">{price}</span>
+          <span className="text-ink/30 text-xs flex items-center gap-1">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <circle cx="5" cy="5" r="4" fill="#0047CC"/>
+            </svg>
+            Story Verified
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}

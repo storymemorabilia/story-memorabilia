@@ -19,6 +19,7 @@ const config: Config = {
       fontFamily: {
         barlow: ["'Barlow'", "sans-serif"],
         "barlow-condensed": ["'Barlow Condensed'", "sans-serif"],
+        display: ["'Barlow Condensed'", "sans-serif"],
       },
       fontSize: {
         "display-xl": ["clamp(3rem, 8vw, 7rem)", { lineHeight: "0.95", letterSpacing: "-0.02em" }],

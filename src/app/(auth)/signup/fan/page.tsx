@@ -35,7 +35,7 @@ export default function FanSignupPage() {
   };
 
   return (
-    <div className="min-h-screen bg-cobalt flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center px-4" style={{backgroundColor: "#0047CC"}}>
       <div className="w-full max-w-md">
         <Link href="/" className="font-display text-white text-4xl block mb-12">
           STORY<span className="text-white/60">.</span>

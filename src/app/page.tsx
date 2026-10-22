@@ -15,6 +15,7 @@ const SPORTS = [
   "Football", "Basketball", "Soccer", "Baseball", "Tennis",
   "Swimming", "Track & Field", "Wrestling", "Volleyball", "Cycling",
   "Gymnastics", "Boxing", "Lacrosse", "Hockey", "Rugby",
+  "Sailing", "Fencing", "Squash", "Paralympic", "Rowing",
 ];
 
 export default function HomePage() {
@@ -68,9 +69,9 @@ export default function HomePage() {
             {/* Stats bar */}
             <div className="mt-16 flex gap-12 border-t border-white/10 pt-8">
               {[
-                { num: "500+", label: "Athletes" },
-                { num: "2,400+", label: "Items Sold" },
+                { num: "Launching", label: "2026" },
                 { num: "100%", label: "Story Verified" },
+                { num: "Direct", label: "Athlete to Fan" },
               ].map(({ num, label }) => (
                 <div key={label}>
                   <div className="font-display text-white text-4xl">{num}</div>

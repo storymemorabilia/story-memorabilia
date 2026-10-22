@@ -43,8 +43,8 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-[#080808] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
-        <Link href="/" className="font-display text-white text-4xl block mb-12 hover:text-cobalt transition-colors">
-          STORY<span className="text-cobalt">.</span>
+        <Link href="/" className="font-display text-white text-4xl block mb-12 transition-colors">
+          STORY<span style={{color:"#0047CC"}}>.</span>
         </Link>
 
         <h1 className="font-display text-white text-3xl mb-8">SIGN IN</h1>
@@ -57,7 +57,7 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt transition-colors"
+              className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none transition-colors"
               placeholder="you@example.com"
             />
           </div>
@@ -69,7 +69,7 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt transition-colors"
+              className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none transition-colors"
               placeholder="••••••••"
             />
           </div>
@@ -81,7 +81,8 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-cobalt text-white font-semibold py-4 hover:bg-cobalt-dark transition-colors disabled:opacity-50 mt-4"
+            className="w-full text-white font-semibold py-4 transition-colors disabled:opacity-50 mt-4"
+            style={{backgroundColor:"#0047CC"}}
           >
             {loading ? "Signing in…" : "Sign In"}
           </button>
@@ -90,8 +91,8 @@ export default function LoginPage() {
         <div className="mt-8 flex justify-between text-sm">
           <span className="text-white/40">No account?</span>
           <div className="flex gap-4">
-            <Link href="/signup/fan" className="text-cobalt hover:underline">Join as Fan</Link>
-            <Link href="/signup/athlete" className="text-cobalt hover:underline">Join as Athlete</Link>
+            <Link href="/signup/fan" className="hover:underline" style={{color:"#0047CC"}}>Join as Fan</Link>
+            <Link href="/signup/athlete" className="hover:underline" style={{color:"#0047CC"}}>Join as Athlete</Link>
           </div>
         </div>
       </div>

@@ -41,7 +41,7 @@ export default function BuyButton({ listingId, price, title }: Props) {
     <button
       onClick={handleBuy}
       disabled={loading}
-      className="w-full bg-cobalt text-white font-semibold text-lg py-5 hover:bg-cobalt-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+      className="w-full text-white font-semibold text-lg py-5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" style={{backgroundColor:"#0047CC"}}
     >
       {loading ? "Redirecting to checkout…" : "Buy Now"}
     </button>

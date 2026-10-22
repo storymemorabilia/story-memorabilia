@@ -25,10 +25,10 @@ export default async function CheckoutSuccessPage({
     <div className="min-h-screen bg-[#080808] flex items-center justify-center px-4">
       <div className="max-w-md w-full text-center">
         <Link href="/" className="font-display text-white text-4xl inline-block mb-12">
-          STORY<span className="text-cobalt">.</span>
+          STORY<span style={{color:"#0047CC"}}>.</span>
         </Link>
 
-        <div className="w-20 h-20 rounded-full bg-cobalt flex items-center justify-center mx-auto mb-8">
+        <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-8" style={{backgroundColor:"#0047CC"}}>
           <svg width="36" height="28" viewBox="0 0 36 28" fill="none">
             <path d="M2 14L13 25L34 2" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -46,12 +46,12 @@ export default async function CheckoutSuccessPage({
         </p>
 
         {order?.coa_id && (
-          <div className="border border-cobalt/30 bg-cobalt/10 p-4 mb-8">
-            <p className="text-cobalt text-xs font-semibold mb-1">YOUR CERTIFICATE OF AUTHENTICITY</p>
+          <div className="border p-4 mb-8" style={{borderColor:"rgba(0,71,204,0.3)",backgroundColor:"rgba(0,71,204,0.1)"}}>
+            <p className="text-xs font-semibold mb-1" style={{color:"#0047CC"}}>YOUR CERTIFICATE OF AUTHENTICITY</p>
             <p className="text-white font-mono text-sm">{order.coa_id}</p>
             <Link
               href={`/verify/${order.coa_id}`}
-              className="text-cobalt text-xs hover:underline mt-2 inline-block"
+              className="text-xs hover:underline mt-2 inline-block" style={{color:"#0047CC"}}
             >
               View certificate →
             </Link>
@@ -61,7 +61,7 @@ export default async function CheckoutSuccessPage({
         <div className="space-y-3">
           <Link
             href="/dashboard/fan"
-            className="block w-full bg-cobalt text-white font-semibold py-4 hover:bg-cobalt-dark transition-colors"
+            className="block w-full text-white font-semibold py-4 transition-colors" style={{backgroundColor:"#0047CC"}}
           >
             Track Your Order
           </Link>

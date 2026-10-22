@@ -44,7 +44,7 @@ export default async function AthleteProfilePage({ params }: { params: Promise<{
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row items-start md:items-end gap-8">
               {/* Avatar */}
-              <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-cobalt flex items-center justify-center text-white font-bold text-5xl flex-shrink-0">
+              <div className="w-24 h-24 md:w-32 md:h-32 rounded-full flex items-center justify-center text-white font-bold text-5xl flex-shrink-0" style={{backgroundColor:"#0047CC"}}>
                 {athlete.full_name?.[0]?.toUpperCase() || "?"}
               </div>
 
@@ -52,7 +52,7 @@ export default async function AthleteProfilePage({ params }: { params: Promise<{
                 <div className="flex items-center gap-3 mb-2">
                   <h1 className="font-display text-white text-4xl md:text-6xl">{athlete.full_name?.toUpperCase()}</h1>
                   {athlete.verified && (
-                    <span className="bg-cobalt text-white text-xs font-semibold px-2 py-1 self-center">VERIFIED</span>
+                    <span className="text-white text-xs font-semibold px-2 py-1 self-center" style={{backgroundColor:"#0047CC"}}>VERIFIED</span>
                   )}
                 </div>
                 <div className="flex items-center gap-4 text-white/50 text-sm mb-4">
@@ -79,7 +79,7 @@ export default async function AthleteProfilePage({ params }: { params: Promise<{
               </div>
 
               <div className="text-right">
-                <div className="font-display text-cobalt text-5xl">{listings?.length || 0}</div>
+                <div className="font-display text-5xl" style={{color:"#0047CC"}}>{listings?.length || 0}</div>
                 <div className="text-white/40 text-sm">active listings</div>
               </div>
             </div>

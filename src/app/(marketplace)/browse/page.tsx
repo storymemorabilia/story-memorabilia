@@ -55,7 +55,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
                 name="q"
                 defaultValue={params.q}
                 placeholder="Search athletes, items…"
-                className="flex-1 bg-white/10 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt placeholder:text-white/30 text-sm"
+                className="flex-1 bg-white/10 border border-white/20 text-white px-4 py-3 focus:outline-none placeholder:text-white/30 text-sm"
               />
               <button type="submit" className="text-white px-6 py-3 font-semibold text-sm transition-colors" style={{backgroundColor:"#0047CC"}}>
                 Search

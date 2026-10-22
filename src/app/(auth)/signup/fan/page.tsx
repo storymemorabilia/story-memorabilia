@@ -87,7 +87,8 @@ export default function FanSignupPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-white text-cobalt font-semibold py-4 hover:bg-white/90 transition-colors disabled:opacity-50 mt-4"
+            className="w-full bg-white font-semibold py-4 hover:bg-white/90 transition-colors disabled:opacity-50 mt-4"
+            style={{color:"#0047CC"}}
           >
             {loading ? "Creating account…" : "Create Fan Account"}
           </button>

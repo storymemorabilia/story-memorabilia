@@ -94,7 +94,7 @@ export default function NewListingPage() {
       <div className="bg-[#080808] px-4 py-8">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <div>
-            <p className="text-cobalt font-display text-xs tracking-widest mb-1">NEW LISTING</p>
+            <p className="font-display text-xs tracking-widest mb-1" style={{color:"#0047CC"}}>NEW LISTING</p>
             <h1 className="font-display text-white text-3xl">LIST YOUR GEAR</h1>
           </div>
           <Link href="/dashboard/athlete" className="text-white/40 hover:text-white text-sm">
@@ -108,11 +108,11 @@ export default function NewListingPage() {
           {/* Images */}
           <div className="bg-white border border-ink/10 p-6">
             <h2 className="font-display text-lg mb-4">PHOTOS</h2>
-            <label className="block border-2 border-dashed border-ink/20 p-8 text-center cursor-pointer hover:border-cobalt transition-colors">
+            <label className="block border-2 border-dashed border-ink/20 p-8 text-center cursor-pointer transition-colors">
               <input type="file" multiple accept="image/*" onChange={handleImageChange} className="hidden" />
               <div className="text-ink/40 text-sm">
                 {images.length > 0 ? (
-                  <span className="text-cobalt font-semibold">{images.length} photo(s) selected</span>
+                  <span className="font-semibold" style={{color:"#0047CC"}}>{images.length} photo(s) selected</span>
                 ) : (
                   <>
                     <p className="font-semibold mb-1">Add photos</p>
@@ -142,7 +142,7 @@ export default function NewListingPage() {
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
                 required
-                className="w-full border border-ink/20 px-4 py-3 focus:outline-none focus:border-cobalt text-ink"
+                className="w-full border border-ink/20 px-4 py-3 focus:outline-none text-ink"
                 placeholder="e.g. 2024 Season Match Worn Training Jersey #7"
               />
             </div>
@@ -153,7 +153,7 @@ export default function NewListingPage() {
                 value={form.description}
                 onChange={(e) => setForm({ ...form, description: e.target.value })}
                 rows={4}
-                className="w-full border border-ink/20 px-4 py-3 focus:outline-none focus:border-cobalt text-ink resize-none"
+                className="w-full border border-ink/20 px-4 py-3 focus:outline-none text-ink resize-none"
                 placeholder="Tell the story behind this item — when was it used, what competition…"
               />
             </div>
@@ -165,7 +165,7 @@ export default function NewListingPage() {
                   value={form.category}
                   onChange={(e) => setForm({ ...form, category: e.target.value })}
                   required
-                  className="w-full border border-ink/20 px-4 py-3 focus:outline-none focus:border-cobalt text-ink bg-white"
+                  className="w-full border border-ink/20 px-4 py-3 focus:outline-none text-ink bg-white"
                 >
                   <option value="">Select…</option>
                   {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -177,7 +177,7 @@ export default function NewListingPage() {
                   type="text"
                   value={form.sport}
                   onChange={(e) => setForm({ ...form, sport: e.target.value })}
-                  className="w-full border border-ink/20 px-4 py-3 focus:outline-none focus:border-cobalt text-ink"
+                  className="w-full border border-ink/20 px-4 py-3 focus:outline-none text-ink"
                   placeholder="e.g. Football"
                 />
               </div>
@@ -194,7 +194,7 @@ export default function NewListingPage() {
                   required
                   min="5"
                   step="0.01"
-                  className="w-full border border-ink/20 pl-8 pr-4 py-3 focus:outline-none focus:border-cobalt text-ink"
+                  className="w-full border border-ink/20 pl-8 pr-4 py-3 focus:outline-none text-ink"
                   placeholder="0.00"
                 />
               </div>
@@ -215,7 +215,7 @@ export default function NewListingPage() {
                   key={value}
                   className={`cursor-pointer border p-4 transition-all ${
                     form.condition === value
-                      ? "border-cobalt bg-cobalt/5"
+                      ? "border-blue-600 bg-blue-50"
                       : "border-ink/10 hover:border-ink/30"
                   }`}
                 >
@@ -240,7 +240,7 @@ export default function NewListingPage() {
             <label className="flex items-center gap-4 cursor-pointer">
               <div
                 onClick={() => setForm({ ...form, limited_drop: !form.limited_drop })}
-                className={`w-12 h-6 rounded-full transition-colors ${form.limited_drop ? "bg-cobalt" : "bg-ink/20"} relative`}
+                className="w-12 h-6 rounded-full transition-colors relative" style={{backgroundColor: form.limited_drop ? "#0047CC" : "rgba(8,8,8,0.2)"}}
               >
                 <div className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform ${form.limited_drop ? "translate-x-6" : "translate-x-0.5"}`} />
               </div>
@@ -256,7 +256,7 @@ export default function NewListingPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-cobalt text-white font-semibold text-lg py-5 hover:bg-cobalt-dark transition-colors disabled:opacity-50"
+            className="w-full text-white font-semibold text-lg py-5 transition-colors disabled:opacity-50" style={{backgroundColor:"#0047CC"}}
           >
             {loading ? "Publishing…" : "Publish Listing"}
           </button>

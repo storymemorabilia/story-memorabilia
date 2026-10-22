@@ -64,8 +64,8 @@ export default function AthleteSignupPage() {
     return (
       <div className="min-h-screen bg-[#080808] flex items-center justify-center px-4">
         <div className="max-w-md text-center">
-          <div className="font-display text-white text-4xl mb-8">STORY<span className="text-cobalt">.</span></div>
-          <div className="w-16 h-16 rounded-full bg-cobalt flex items-center justify-center mx-auto mb-6">
+          <div className="font-display text-white text-4xl mb-8">STORY<span style={{color:"#0047CC"}}>.</span></div>
+          <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{backgroundColor:"#0047CC"}}>
             <svg width="28" height="22" viewBox="0 0 28 22" fill="none">
               <path d="M2 11L10 19L26 2" stroke="white" strokeWidth="3" strokeLinecap="round"/>
             </svg>
@@ -74,7 +74,7 @@ export default function AthleteSignupPage() {
           <p className="text-white/60 leading-relaxed mb-8">
             We review every athlete personally. You&apos;ll hear from us within 48 hours once your profile is verified and you&apos;re cleared to list.
           </p>
-          <Link href="/" className="bg-cobalt text-white font-semibold px-8 py-3 inline-block hover:bg-cobalt-dark transition-colors">
+          <Link href="/" className="text-white font-semibold px-8 py-3 inline-block transition-colors" style={{backgroundColor:"#0047CC"}}>
             Back to Story
           </Link>
         </div>
@@ -86,13 +86,13 @@ export default function AthleteSignupPage() {
     <div className="min-h-screen bg-[#080808] flex items-center justify-center px-4 py-16">
       <div className="w-full max-w-lg">
         <Link href="/" className="font-display text-white text-4xl block mb-12">
-          STORY<span className="text-cobalt">.</span>
+          STORY<span style={{color:"#0047CC"}}>.</span>
         </Link>
 
         <div className="flex items-center gap-3 mb-8">
-          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= 1 ? "bg-cobalt text-white" : "bg-white/10 text-white/40"}`}>1</div>
-          <div className={`flex-1 h-px ${step >= 2 ? "bg-cobalt" : "bg-white/10"}`} />
-          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= 2 ? "bg-cobalt text-white" : "bg-white/10 text-white/40"}`}>2</div>
+          <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style={step >= 1 ? {backgroundColor:"#0047CC",color:"white"} : {backgroundColor:"rgba(255,255,255,0.1)",color:"rgba(255,255,255,0.4)"}}>1</div>
+          <div className="flex-1 h-px" style={{backgroundColor: step >= 2 ? "#0047CC" : "rgba(255,255,255,0.1)"}} />
+          <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style={step >= 2 ? {backgroundColor:"#0047CC",color:"white"} : {backgroundColor:"rgba(255,255,255,0.1)",color:"rgba(255,255,255,0.4)"}}>2</div>
         </div>
 
         <h1 className="font-display text-white text-3xl mb-2">
@@ -112,7 +112,7 @@ export default function AthleteSignupPage() {
                   value={form.fullName}
                   onChange={(e) => setForm({ ...form, fullName: e.target.value })}
                   required
-                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt"
+                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none"
                 />
               </div>
               <div>
@@ -122,7 +122,7 @@ export default function AthleteSignupPage() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   required
-                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt"
+                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none"
                 />
               </div>
               <div>
@@ -133,10 +133,10 @@ export default function AthleteSignupPage() {
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
                   required
                   minLength={8}
-                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt"
+                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none"
                 />
               </div>
-              <button type="submit" className="w-full bg-cobalt text-white font-semibold py-4 hover:bg-cobalt-dark transition-colors mt-4">
+              <button type="submit" className="w-full text-white font-semibold py-4 transition-colors mt-4" style={{backgroundColor:"#0047CC"}}>
                 Continue
               </button>
             </>
@@ -150,7 +150,7 @@ export default function AthleteSignupPage() {
                   value={form.sport}
                   onChange={(e) => setForm({ ...form, sport: e.target.value })}
                   required
-                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt"
+                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none"
                 >
                   <option value="">Select your sport</option>
                   {SPORTS.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -162,7 +162,7 @@ export default function AthleteSignupPage() {
                   type="text"
                   value={form.team}
                   onChange={(e) => setForm({ ...form, team: e.target.value })}
-                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt"
+                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none"
                   placeholder="e.g. Portland Trail Blazers, Team USA"
                 />
               </div>
@@ -172,7 +172,7 @@ export default function AthleteSignupPage() {
                   type="text"
                   value={form.instagram}
                   onChange={(e) => setForm({ ...form, instagram: e.target.value })}
-                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt"
+                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none"
                   placeholder="@yourusername"
                 />
               </div>
@@ -182,7 +182,7 @@ export default function AthleteSignupPage() {
                   value={form.bio}
                   onChange={(e) => setForm({ ...form, bio: e.target.value })}
                   rows={3}
-                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt resize-none"
+                  className="w-full bg-white/5 border border-white/20 text-white px-4 py-3 focus:outline-none resize-none"
                   placeholder="Tell fans who you are and what you compete in…"
                 />
               </div>
@@ -196,7 +196,7 @@ export default function AthleteSignupPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 bg-cobalt text-white font-semibold py-4 hover:bg-cobalt-dark transition-colors disabled:opacity-50"
+                  className="flex-1 text-white font-semibold py-4 transition-colors disabled:opacity-50" style={{backgroundColor:"#0047CC"}}
                 >
                   {loading ? "Submitting…" : "Apply to Story"}
                 </button>
@@ -207,7 +207,7 @@ export default function AthleteSignupPage() {
 
         <p className="mt-6 text-white/40 text-sm">
           Already have an account?{" "}
-          <Link href="/login" className="text-cobalt hover:underline">Sign in</Link>
+          <Link href="/login" className="hover:underline" style={{color:"#0047CC"}}>Sign in</Link>
         </p>
       </div>
     </div>

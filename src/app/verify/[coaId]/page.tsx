@@ -26,11 +26,11 @@ export default async function VerifyPage({ params }: { params: Promise<{ coaId: 
         {/* Header */}
         <div className="text-center mb-12">
           <Link href="/" className="font-display text-white text-4xl inline-block mb-8">
-            STORY<span className="text-cobalt">.</span>
+            STORY<span style={{color:"#0047CC"}}>.</span>
           </Link>
-          <div className="inline-flex items-center gap-2 bg-cobalt/20 border border-cobalt/40 px-4 py-2 rounded-sm mb-6">
-            <span className="w-2 h-2 rounded-full bg-cobalt inline-block" />
-            <span className="text-cobalt text-sm font-semibold">VERIFIED AUTHENTIC</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-sm mb-6" style={{backgroundColor:"rgba(0,71,204,0.2)",border:"1px solid rgba(0,71,204,0.4)"}}>
+            <span className="w-2 h-2 rounded-full inline-block" style={{backgroundColor:"#0047CC"}} />
+            <span className="text-sm font-semibold" style={{color:"#0047CC"}}>VERIFIED AUTHENTIC</span>
           </div>
           <h1 className="font-display text-white text-4xl md:text-5xl">
             CERTIFICATE OF<br />AUTHENTICITY
@@ -75,9 +75,9 @@ export default async function VerifyPage({ params }: { params: Promise<{ coaId: 
                 href={coa.athlete_video_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 bg-cobalt/20 border border-cobalt/30 px-4 py-3 hover:bg-cobalt/30 transition-colors"
+                className="flex items-center gap-3 px-4 py-3 transition-colors" style={{backgroundColor:"rgba(0,71,204,0.2)",border:"1px solid rgba(0,71,204,0.3)"}}
               >
-                <div className="w-10 h-10 rounded-full bg-cobalt flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor:"#0047CC"}}>
                   <svg width="12" height="14" viewBox="0 0 12 14" fill="white">
                     <path d="M1 1l10 6L1 13V1z"/>
                   </svg>

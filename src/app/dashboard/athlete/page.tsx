@@ -47,24 +47,24 @@ export default async function AthleteDashboard() {
         <div className="bg-[#080808] px-4 py-12">
           <div className="max-w-7xl mx-auto flex items-end justify-between">
             <div>
-              <p className="text-cobalt font-display text-sm tracking-widest mb-2">ATHLETE DASHBOARD</p>
+              <p className="font-display text-sm tracking-widest mb-2" style={{color:"#0047CC"}}>ATHLETE DASHBOARD</p>
               <h1 className="font-display text-white text-4xl">{profile.full_name?.toUpperCase()}</h1>
               {!profile.verified && (
                 <p className="text-signal text-sm mt-2">⚠ Pending Story verification — listings won&apos;t appear until verified</p>
               )}
               {!profile.stripe_onboarding_complete && profile.verified && (
-                <Link href="/api/stripe/connect" className="text-cobalt text-sm mt-2 inline-block hover:underline">
+                <Link href="/api/stripe/connect" className="text-sm mt-2 inline-block hover:underline" style={{color:"#0047CC"}}>
                   → Set up Stripe to receive payments
                 </Link>
               )}
             </div>
             <div className="flex gap-8 text-right">
               <div>
-                <div className="font-display text-cobalt text-3xl">${(totalSales / 100).toFixed(0)}</div>
+                <div className="font-display text-3xl" style={{color:"#0047CC"}}>${(totalSales / 100).toFixed(0)}</div>
                 <div className="text-white/40 text-xs">Total Earned</div>
               </div>
               <div>
-                <div className="font-display text-cobalt text-3xl">{pendingShipments}</div>
+                <div className="font-display text-3xl" style={{color:"#0047CC"}}>{pendingShipments}</div>
                 <div className="text-white/40 text-xs">To Ship</div>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default async function AthleteDashboard() {
             <div className="md:col-span-2">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="font-display text-2xl">MY LISTINGS</h2>
-                <Link href="/dashboard/athlete/new-listing" className="bg-cobalt text-white font-semibold px-4 py-2 text-sm hover:bg-cobalt-dark transition-colors">
+                <Link href="/dashboard/athlete/new-listing" className="text-white font-semibold px-4 py-2 text-sm transition-colors" style={{backgroundColor:"#0047CC"}}>
                   + New Listing
                 </Link>
               </div>
@@ -97,7 +97,7 @@ export default async function AthleteDashboard() {
                         <p className="text-ink/40 text-xs">{CONDITION_LABELS[listing.condition]}</p>
                       </div>
                       <div className="text-right flex-shrink-0">
-                        <div className="font-display text-cobalt text-xl">${(listing.price / 100).toFixed(0)}</div>
+                        <div className="font-display text-xl" style={{color:"#0047CC"}}>${(listing.price / 100).toFixed(0)}</div>
                         <div className={`text-xs font-semibold ${
                           listing.status === "active" ? "text-green-600" :
                           listing.status === "sold" ? "text-ink/40" :
@@ -106,7 +106,7 @@ export default async function AthleteDashboard() {
                           {listing.status.toUpperCase()}
                         </div>
                       </div>
-                      <Link href={`/dashboard/athlete/listing/${listing.id}`} className="text-cobalt text-xs hover:underline ml-2">
+                      <Link href={`/dashboard/athlete/listing/${listing.id}`} className="text-xs hover:underline ml-2" style={{color:"#0047CC"}}>
                         Edit
                       </Link>
                     </div>
@@ -115,7 +115,7 @@ export default async function AthleteDashboard() {
               ) : (
                 <div className="bg-white border border-ink/10 p-12 text-center">
                   <p className="text-ink/30 font-display text-2xl mb-4">NO LISTINGS YET</p>
-                  <Link href="/dashboard/athlete/new-listing" className="bg-cobalt text-white font-semibold px-6 py-3 inline-block hover:bg-cobalt-dark transition-colors">
+                  <Link href="/dashboard/athlete/new-listing" className="text-white font-semibold px-6 py-3 inline-block transition-colors" style={{backgroundColor:"#0047CC"}}>
                     Create Your First Listing
                   </Link>
                 </div>
@@ -132,14 +132,14 @@ export default async function AthleteDashboard() {
                       <p className="font-semibold text-sm text-ink mb-1">{order.listing?.title}</p>
                       <div className="flex items-center justify-between">
                         <span className="text-signal text-xs font-semibold">NEEDS LABEL</span>
-                        <span className="font-display text-cobalt">${(order.athlete_payout_cents / 100).toFixed(0)}</span>
+                        <span className="font-display" style={{color:"#0047CC"}}>${(order.athlete_payout_cents / 100).toFixed(0)}</span>
                       </div>
                       {order.shipping_label_url && (
                         <a
                           href={order.shipping_label_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="mt-2 block w-full bg-cobalt text-white text-xs font-semibold py-2 text-center hover:bg-cobalt-dark transition-colors"
+                          className="mt-2 block w-full text-white text-xs font-semibold py-2 text-center transition-colors" style={{backgroundColor:"#0047CC"}}
                         >
                           Download Prepaid Label
                         </a>

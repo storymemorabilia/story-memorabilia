@@ -1,12 +1,13 @@
+import React from "react";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import Navbar from "@/components/layout/Navbar";
 
-const STATUS_LABELS: Record<string, { label: string; color: string }> = {
+const STATUS_LABELS: Record<string, { label: string; color: string; style?: React.CSSProperties }> = {
   pending: { label: "Pending", color: "text-ink/40" },
   paid: { label: "Awaiting Shipment", color: "text-signal" },
-  shipped: { label: "In Transit", color: "text-cobalt" },
+  shipped: { label: "In Transit", color: "", style: {color:"#0047CC"} },
   delivered: { label: "Delivered", color: "text-green-600" },
   disputed: { label: "Disputed", color: "text-signal" },
   refunded: { label: "Refunded", color: "text-ink/40" },
@@ -32,7 +33,7 @@ export default async function FanDashboard() {
       <main className="pt-16 min-h-screen bg-[#f5f5f5]">
         <div className="bg-[#080808] px-4 py-12">
           <div className="max-w-4xl mx-auto">
-            <p className="text-cobalt font-display text-sm tracking-widest mb-2">MY COLLECTION</p>
+            <p className="font-display text-sm tracking-widest mb-2" style={{color:"#0047CC"}}>MY COLLECTION</p>
             <h1 className="font-display text-white text-4xl">{profile.full_name?.toUpperCase() || "MY ORDERS"}</h1>
           </div>
         </div>
@@ -55,13 +56,13 @@ export default async function FanDashboard() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-4 mb-2">
                         <h3 className="font-semibold text-ink truncate">{order.listing?.title}</h3>
-                        <span className={`text-xs font-semibold whitespace-nowrap ${status.color}`}>
+                        <span className={`text-xs font-semibold whitespace-nowrap ${status.color}`} style={status.style}>
                           {status.label}
                         </span>
                       </div>
                       <p className="text-ink/40 text-xs mb-3">
                         From{" "}
-                        <Link href={`/athlete/${order.athlete?.username || ""}`} className="hover:text-cobalt transition-colors">
+                        <Link href={`/athlete/${order.athlete?.username || ""}`} className="hover:underline transition-colors">
                           {order.athlete?.full_name}
                         </Link>
                         {" · "}
@@ -69,7 +70,7 @@ export default async function FanDashboard() {
                       </p>
 
                       <div className="flex items-center gap-4">
-                        <span className="font-display text-cobalt text-xl">
+                        <span className="font-display text-xl" style={{color:"#0047CC"}}>
                           ${(order.price_cents / 100).toFixed(0)}
                         </span>
 
@@ -78,14 +79,14 @@ export default async function FanDashboard() {
                             href={order.tracking_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs text-cobalt hover:underline"
+                            className="text-xs hover:underline" style={{color:"#0047CC"}}
                           >
                             Track package →
                           </a>
                         )}
 
                         {order.coa_id && (
-                          <Link href={`/verify/${order.coa_id}`} className="text-xs text-ink/40 hover:text-cobalt transition-colors">
+                          <Link href={`/verify/${order.coa_id}`} className="text-xs text-ink/40 hover:underline transition-colors">
                             View COA ({order.coa_id})
                           </Link>
                         )}
@@ -98,7 +99,7 @@ export default async function FanDashboard() {
           ) : (
             <div className="text-center py-24">
               <p className="font-display text-3xl text-ink/20 mb-6">NO ORDERS YET</p>
-              <Link href="/browse" className="bg-cobalt text-white font-semibold px-8 py-4 inline-block hover:bg-cobalt-dark transition-colors">
+              <Link href="/browse" className="text-white font-semibold px-8 py-4 inline-block transition-colors" style={{backgroundColor:"#0047CC"}}>
                 Start Shopping
               </Link>
             </div>

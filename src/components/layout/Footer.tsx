@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-2 md:col-span-1">
             <div className="font-display text-white text-3xl mb-3">
-              STORY<span className="text-cobalt">.</span>
+              STORY<span style={{color:"#0047CC"}}>.</span>
             </div>
             <p className="text-sm leading-relaxed">
               Every athlete has a story. Now their legacy can live in your hands.
@@ -49,7 +49,7 @@ export default function Footer() {
           <p className="text-xs">© {new Date().getFullYear()} Story Memorabilia. All rights reserved.</p>
           <div className="flex items-center gap-2 text-xs">
             <span className="inline-flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-cobalt inline-block" />
+              <span className="w-2 h-2 rounded-full inline-block" style={{backgroundColor:"#0047CC"}} />
               Story Vetted. Story Verified.
             </span>
           </div>

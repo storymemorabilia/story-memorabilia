@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 import type { Listing } from "@/types";
 
 const CONDITION_LABELS: Record<string, string> = {
@@ -10,13 +11,13 @@ const CONDITION_LABELS: Record<string, string> = {
   new_with_tags: "New w/ Tags",
 };
 
-const CONDITION_COLORS: Record<string, string> = {
-  match_worn: "bg-[#1a1a2e] text-white",
-  game_used: "bg-cobalt text-white",
-  team_issued: "bg-ink text-white",
-  signed: "bg-signal text-white",
-  new_signed: "bg-[#2d5a27] text-white",
-  new_with_tags: "bg-[#5a4a2d] text-white",
+const CONDITION_STYLE: Record<string, React.CSSProperties> = {
+  match_worn: {backgroundColor: "#1a1a2e", color: "white"},
+  game_used: {backgroundColor: "#0047CC", color: "white"},
+  team_issued: {backgroundColor: "#080808", color: "white"},
+  signed: {backgroundColor: "#E8002A", color: "white"},
+  new_signed: {backgroundColor: "#2d5a27", color: "white"},
+  new_with_tags: {backgroundColor: "#5a4a2d", color: "white"},
 };
 
 interface Props {
@@ -32,7 +33,7 @@ export default function ListingCard({ listing }: Props) {
   });
 
   return (
-    <Link href={`/listing/${listing.id}`} className="group block bg-white border border-ink/10 hover:border-cobalt transition-colors">
+    <Link href={`/listing/${listing.id}`} className="group block bg-white border border-ink/10 transition-colors" style={{"--hover-border": "#0047CC"} as React.CSSProperties}>
       {/* Image */}
       <div className="aspect-square bg-[#f0f0f0] relative overflow-hidden">
         {mainImage ? (
@@ -54,7 +55,7 @@ export default function ListingCard({ listing }: Props) {
 
         {/* Condition tag */}
         <div className="absolute top-3 left-3">
-          <span className={`text-xs font-semibold px-2 py-1 ${CONDITION_COLORS[listing.condition] || "bg-ink text-white"}`}>
+          <span className="text-xs font-semibold px-2 py-1" style={CONDITION_STYLE[listing.condition] || {backgroundColor:"#080808",color:"white"}}>
             {CONDITION_LABELS[listing.condition] || listing.condition}
           </span>
         </div>
@@ -77,7 +78,7 @@ export default function ListingCard({ listing }: Props) {
         )}
         <h3 className="font-semibold text-ink text-sm mb-2 leading-tight line-clamp-2">{listing.title}</h3>
         <div className="flex items-center justify-between">
-          <span className="font-display text-cobalt text-xl">{price}</span>
+          <span className="font-display text-xl" style={{color:"#0047CC"}}>{price}</span>
           <span className="text-ink/30 text-xs flex items-center gap-1">
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
               <circle cx="5" cy="5" r="4" fill="#0047CC"/>

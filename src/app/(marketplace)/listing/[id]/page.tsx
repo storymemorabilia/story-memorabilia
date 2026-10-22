@@ -57,7 +57,7 @@ export default async function ListingPage({ params }: { params: Promise<{ id: st
                   </div>
                 )}
                 <div className="absolute top-4 left-4">
-                  <span className="bg-cobalt text-white text-xs font-semibold px-3 py-1.5">
+                  <span className="text-white text-xs font-semibold px-3 py-1.5" style={{backgroundColor:"#0047CC"}}>
                     {CONDITION_LABELS[listing.condition] || listing.condition}
                   </span>
                 </div>
@@ -80,11 +80,11 @@ export default async function ListingPage({ params }: { params: Promise<{ id: st
                   href={`/athlete/${listing.athlete.username || listing.athlete.id}`}
                   className="flex items-center gap-3 mb-6 group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-cobalt flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style={{backgroundColor:"#0047CC"}}>
                     {listing.athlete.full_name?.[0]?.toUpperCase() || "?"}
                   </div>
                   <div>
-                    <p className="font-semibold text-ink group-hover:text-cobalt transition-colors">
+                    <p className="font-semibold text-ink transition-colors">
                       {listing.athlete.full_name}
                     </p>
                     <p className="text-ink/40 text-xs">
@@ -102,7 +102,7 @@ export default async function ListingPage({ params }: { params: Promise<{ id: st
               )}
 
               <div className="border-t border-b border-ink/10 py-6 mb-6">
-                <div className="font-display text-4xl text-cobalt mb-1">{price}</div>
+                <div className="font-display text-4xl mb-1" style={{color:"#0047CC"}}>{price}</div>
                 <p className="text-ink/40 text-xs">{athletePayout} goes directly to the athlete</p>
               </div>
 

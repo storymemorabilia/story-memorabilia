@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import type { Profile } from "@/types";
 
+const COBALT = "#0047CC";
+
 export default function Navbar() {
   const [user, setUser] = useState<Profile | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,9 +35,9 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#080808] border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="font-display text-white text-2xl tracking-tight hover:text-cobalt transition-colors">
+        <Link href="/" className="font-display text-white text-2xl tracking-tight transition-colors">
           STORY
-          <span className="text-cobalt">.</span>
+          <span style={{color: COBALT}}>.</span>
         </Link>
 
         {/* Desktop nav */}
@@ -56,45 +58,35 @@ export default function Navbar() {
           {user ? (
             <>
               {user.role === "athlete" && (
-                <Link
-                  href="/dashboard/athlete"
-                  className="text-sm text-white/70 hover:text-white transition-colors"
-                >
+                <Link href="/dashboard/athlete" className="text-sm text-white/70 hover:text-white transition-colors">
                   My Listings
                 </Link>
               )}
               {user.role === "fan" && (
-                <Link
-                  href="/dashboard/fan"
-                  className="text-sm text-white/70 hover:text-white transition-colors"
-                >
+                <Link href="/dashboard/fan" className="text-sm text-white/70 hover:text-white transition-colors">
                   My Orders
                 </Link>
               )}
-              <button
-                onClick={handleSignOut}
-                className="text-sm text-white/50 hover:text-white transition-colors"
-              >
+              <button onClick={handleSignOut} className="text-sm text-white/50 hover:text-white transition-colors">
                 Sign out
               </button>
               <Link
                 href={`/athlete/${user.username || user.id}`}
-                className="w-9 h-9 rounded-full bg-cobalt flex items-center justify-center text-white text-sm font-bold"
+                className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold"
+                style={{backgroundColor: COBALT}}
               >
                 {user.full_name?.[0]?.toUpperCase() || "?"}
               </Link>
             </>
           ) : (
             <>
-              <Link
-                href="/login"
-                className="text-sm text-white/70 hover:text-white transition-colors"
-              >
+              <Link href="/login" className="text-sm text-white/70 hover:text-white transition-colors">
                 Log in
               </Link>
               <Link
                 href="/signup/fan"
-                className="bg-cobalt text-white text-sm font-semibold px-4 py-2 rounded hover:bg-cobalt-dark transition-colors"
+                className="text-white text-sm font-semibold px-4 py-2 rounded transition-colors"
+                style={{backgroundColor: COBALT}}
               >
                 Get Started
               </Link>
@@ -129,7 +121,7 @@ export default function Navbar() {
           ) : (
             <>
               <Link href="/login" className="text-white/70 text-sm">Log in</Link>
-              <Link href="/signup/fan" className="bg-cobalt text-white text-sm font-semibold px-4 py-2 rounded text-center">
+              <Link href="/signup/fan" className="text-white text-sm font-semibold px-4 py-2 rounded text-center" style={{backgroundColor: COBALT}}>
                 Get Started
               </Link>
             </>

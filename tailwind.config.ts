@@ -27,6 +27,13 @@ const config: Config = {
       },
     },
   },
+  safelist: [
+    "bg-cobalt", "bg-cobalt-dark", "bg-cobalt-light", "bg-ink", "bg-signal", "bg-off-white",
+    "text-cobalt", "text-cobalt-dark", "text-ink", "text-signal",
+    "border-cobalt", "border-ink",
+    "hover:bg-cobalt", "hover:bg-cobalt-dark", "hover:bg-ink",
+    "font-display", "font-barlow", "font-barlow-condensed",
+  ],
   plugins: [],
 };
 

@@ -43,18 +43,18 @@ export default function HomePage() {
 
             <h1
               className="font-display text-white leading-none mb-8"
-              style={{ fontSize: "clamp(4rem, 14vw, 12rem)" }}
+              style={{ fontSize: "clamp(2.5rem, 8vw, 7rem)" }}
             >
               EVERY<br />
               ATHLETE<br />
               HAS A<br />
-              <span className="text-cobalt">STORY.</span>
+              <span style={{ color: "#0047CC" }}>STORY.</span>
             </h1>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/browse"
-                className="bg-cobalt text-white font-semibold text-lg px-8 py-4 inline-block hover:bg-cobalt-dark transition-colors"
+                className="text-white font-semibold text-lg px-8 py-4 inline-block transition-colors" style={{backgroundColor: "#0047CC"}}
               >
                 Shop Now
               </Link>

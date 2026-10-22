@@ -57,7 +57,7 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
                 placeholder="Search athletes, items…"
                 className="flex-1 bg-white/10 border border-white/20 text-white px-4 py-3 focus:outline-none focus:border-cobalt placeholder:text-white/30 text-sm"
               />
-              <button type="submit" className="bg-cobalt text-white px-6 py-3 font-semibold text-sm hover:bg-cobalt-dark transition-colors">
+              <button type="submit" className="text-white px-6 py-3 font-semibold text-sm transition-colors" style={{backgroundColor:"#0047CC"}}>
                 Search
               </button>
             </form>
@@ -68,19 +68,19 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
         <div className="border-b border-ink/10 sticky top-16 bg-white z-40">
           <div className="max-w-7xl mx-auto px-4 overflow-x-auto">
             <div className="flex gap-1 py-3">
-              {CATEGORIES.map((cat) => (
-                <a
-                  key={cat}
-                  href={`/browse?category=${cat.toLowerCase().replace(/ /g, "-")}`}
-                  className={`whitespace-nowrap text-xs font-semibold px-3 py-1.5 transition-colors ${
-                    (params.category === cat.toLowerCase().replace(/ /g, "-") || (!params.category && cat === "All"))
-                      ? "bg-cobalt text-white"
-                      : "text-ink/50 hover:text-ink"
-                  }`}
-                >
-                  {cat}
-                </a>
-              ))}
+              {CATEGORIES.map((cat) => {
+                const isActive = params.category === cat.toLowerCase().replace(/ /g, "-") || (!params.category && cat === "All");
+                return (
+                  <a
+                    key={cat}
+                    href={`/browse?category=${cat.toLowerCase().replace(/ /g, "-")}`}
+                    className="whitespace-nowrap text-xs font-semibold px-3 py-1.5 transition-colors"
+                    style={isActive ? {backgroundColor: "#0047CC", color: "white"} : {color: "rgba(0,0,0,0.5)"}}
+                  >
+                    {cat}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -95,8 +95,11 @@ export default async function BrowsePage({ searchParams }: { searchParams: Promi
             </div>
           ) : (
             <div className="text-center py-24">
-              <p className="font-display text-3xl text-ink/20 mb-4">NO ITEMS YET</p>
-              <p className="text-ink/40 text-sm">Athletes are listing their gear now. Check back soon.</p>
+              <p className="font-display text-5xl mb-4" style={{color: "rgba(0,0,0,0.15)"}}>COMING SOON</p>
+              <p className="text-sm mb-6" style={{color: "rgba(0,0,0,0.4)"}}>We&apos;re onboarding our first athletes. Check back soon — or be one of the first to list.</p>
+              <a href="/signup/athlete" className="inline-block font-semibold px-6 py-3 text-white text-sm" style={{backgroundColor: "#0047CC"}}>
+                Apply as an Athlete →
+              </a>
             </div>
           )}
         </div>
